@@ -8,4 +8,4 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w(metronic.css metronic.js devise.js devise.css metronic/layouts/layout2/img/* metronic/layouts/layout/img/* metronic/global/img/* metronic/global/plugins/font-awesome/fonts/* )
+Rails.application.config.assets.precompile += %w(metronic.css metronic.js devise.js devise.css metronic/layouts/layout2/img/* metronic/layouts/layout/img/* metronic/global/img/* metronic/global/plugins/font-awesome/fonts/* metronic/global/plugins/simple-line-icons/fonts/* )
