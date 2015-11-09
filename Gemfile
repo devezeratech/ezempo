@@ -19,6 +19,7 @@ gem 'devise'
 gem 'carrierwave'
 
 gem 'bootstrap_form', '~> 2.3.0'
+gem 'font-awesome-sass'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
