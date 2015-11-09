@@ -1,0 +1,26 @@
+/*
+ * BEGIN GLOBAL MANDATORY STYLES
+ *= require metronic/global/plugins/font-awesome/css/font-awesome.min
+ *= require metronic/global/plugins/simple-line-icons/simple-line-icons.min
+ *= require metronic/global/plugins/bootstrap/css/bootstrap.min
+ *= require metronic/global/plugins/uniform/css/uniform.default
+ *= require metronic/global/plugins/bootstrap-switch/css/bootstrap-switch.min
+ * END GLOBAL MANDATORY STYLES
+ * BEGIN PAGE LEVEL PLUGIN STYLES
+ *= require metronic/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3
+ *= require metronic/global/plugins/bootstrap-fileinput/bootstrap-fileinput
+ *= require metronic/global/plugins/icheck/skins/all
+ *= require metronic/global/plugins/jqvmap/jqvmap/jqvmap
+ * END PAGE LEVEL PLUGIN STYLES
+ * BEGIN PAGE STYLES 
+ *= require metronic/pages/css/tasks
+ *= require metronic/pages/css/profile
+ * END PAGE STYLES
+ *  BEGIN THEME STYLES
+ *= require metronic/global/css/components
+ *= require metronic/global/css/plugins
+ *= require metronic/layouts/layout2/css/layout
+ *= require metronic/layouts/layout2/css/themes/default
+ *= require metronic/layouts/layout2/css/custom
+ *  END THEME STYLES 
+ */
