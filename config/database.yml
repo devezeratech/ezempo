@@ -81,8 +81,6 @@ test: &test
 production:
   <<: *default
   database: ezempo_production
-  username: ezempo
-  password: <%= ENV['EZEMPO_DATABASE_PASSWORD'] %>
 
 cucumber:
   <<: *test

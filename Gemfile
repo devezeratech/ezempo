@@ -65,6 +65,7 @@ group :development, :test do
   gem 'rspec', '~> 3.3.0'
 
   gem 'rspec-rails', '~> 3.0'
+  gem 'sprockets_better_errors', github: 'suranyami/sprockets_better_errors'
 end
 
 group :test do

@@ -11,7 +11,7 @@
 // BEGIN PAGE LEVEL PLUGINS
 //= require metronic/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js
 //= require metronic/global/plugins/jquery.sparkline.min.js
-//= require metronic/global/plugins/gmaps/gmaps.min.js
+//=# require metronic/global/plugins/gmaps/gmaps.min.js
 //= require metronic/global/plugins/icheck/icheck.min.js
 // END PAGE LEVEL PLUGINS
 // BEGIN THEME GLOBAL SCRIPTS
@@ -19,7 +19,7 @@
 // END THEME GLOBAL SCRIPTS
 // BEGIN PAGE LEVEL SCRIPTS
 //= require metronic/pages/scripts/profile.min.js
-//= require metronic/pages/scripts/timeline.min.js
+//=# require metronic/pages/scripts/timeline.min.js
 // END PAGE LEVEL SCRIPTS
 // BEGIN THEME LAYOUT SCRIPTS
 //= require metronic/layouts/layout2/scripts/layout.min.js
