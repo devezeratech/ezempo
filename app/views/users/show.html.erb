@@ -9,13 +9,13 @@
           <div class="portlet light profile-sidebar-portlet ">
               <!-- SIDEBAR USERPIC -->
               <div class="profile-userpic">
-                <%=image_tag current_user.avatar_url, class: 'img-responsive' %>
+                <%=image_tag @user.avatar_url, class: 'img-responsive' %>
               </div>
               <!-- END SIDEBAR USERPIC -->
               <!-- SIDEBAR USER TITLE -->
               <div class="profile-usertitle">
-                  <div class="profile-usertitle-name"> <%= "#{current_user.name.presence || 'No Name'}" %> </div>
-                  <div class="profile-usertitle-job"> <%= "#{current_user.position.presence || 'Undefined'}" %> </div>
+                  <div class="profile-usertitle-name"> <%= "#{@user.name.presence || 'No Name'}" %> </div>
+                  <div class="profile-usertitle-job"> <%= "#{@user.position.presence || 'Undefined'}" %> </div>
               </div>
               <!-- END SIDEBAR USER TITLE -->
               <!-- SIDEBAR BUTTONS -->
@@ -31,11 +31,13 @@
                           <a href="page_user_profile_1.html">
                               <i class="icon-home"></i> Overview </a>
                       </li>
-                      <li>
-                          <%= link_to edit_user_path(current_user.to_param) do %>
-                              <i class="icon-settings"></i>Account Setting
-                          <% end -%>
-                      </li>
+                      <%if policy(@user).edit? %>
+                        <li>
+                            <%= link_to edit_user_path(@user.to_param) do %>
+                                <i class="icon-settings"></i>Account Setting
+                            <% end -%>
+                        </li>
+                      <% end -%>
                       <li>
                           <a href="page_user_profile_1_help.html">
                               <i class="icon-info"></i> Help </a>

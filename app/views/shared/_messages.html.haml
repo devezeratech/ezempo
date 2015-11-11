@@ -1,0 +1,19 @@
+- if notice
+  :javascript
+    toastr.success("#{notice}");
+- if alert
+  - if alert.length < 500
+    :javascript
+      toastr.error("#{alert}");
+  - else
+    :javascript
+      var alert = " #{alert} ";
+      Metronic.alert({
+                container: $('#alert_container'),
+                type: 'danger',  // alert's type
+                message: alert,  // alert's message
+                close: true, // make alert closable
+                reset: false, // close all previouse alerts first
+                focus: true, // auto scroll to the alert after shown
+                icon: 'warning' // put icon before the message
+            });

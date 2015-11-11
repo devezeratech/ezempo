@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'devise'
 gem 'carrierwave'
+gem 'pundit'
 
 gem 'bootstrap_form', '~> 2.3.0'
 gem 'font-awesome-sass'
