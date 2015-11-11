@@ -25,7 +25,9 @@
                 <div class="portlet-body">
                     <div class="tab-content">
                         <!-- PERSONAL INFO TAB -->
-                        <%= render partial: 'users/form_tabs/personal_info' %>
+                        <div class="tab-pane active" id="tab_1_1">
+                            <%= render partial: 'users/form_tabs/personal_info' %>
+                        </div>
                         <!-- END PERSONAL INFO TAB -->
                         <!-- CHANGE AVATAR TAB -->
                         <div id="tab_1_2" class="tab-pane">
@@ -33,8 +35,9 @@
                         </div>
                         <!-- END CHANGE AVATAR TAB -->
                         <!-- CHANGE PASSWORD TAB -->
-                        <%= render partial: 'users/form_tabs/change_password' %>
-                        
+                        <div id="tab_1_3" class="tab-pane">
+                            <%= render partial: 'users/form_tabs/change_password' %>
+                        </div>
                         <!-- END CHANGE PASSWORD TAB -->
                         <!-- PRIVACY SETTINGS TAB -->
                         <div class="tab-pane" id="tab_1_4">
