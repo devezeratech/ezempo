@@ -34,15 +34,15 @@ License: You must have a valid license purchased only from themeforest(the above
     </head>
     <!-- END HEAD -->
 
-    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed">
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed" >
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">
             <!-- BEGIN HEADER INNER -->
             <div class="page-header-inner ">
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
-                    <a href="index.html">
-                        <img src="<%= image_path 'metronic/layouts/layout2/img/logo-default.png' %>" alt="logo" class="logo-default" /> </a>
+                    <a href="/">
+                        <img src="<%= image_path 'logo_wording_small.png' %>" alt="logo" class="logo-default" /> </a>
                     <div class="menu-toggler sidebar-toggler">
                         <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
                     </div>
@@ -1617,7 +1617,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="../assets/global/plugins/respond.min.js"></script>
 <script src="../assets/global/plugins/excanvas.min.js"></script> 
 <![endif]-->
-<%= render 'shared/footer_scripts' %>
+
         <%= javascript_include_tag 'application' %>     
+        <%= render 'shared/footer_scripts' %>
     </body>
 </html>

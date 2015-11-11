@@ -6,10 +6,7 @@
  * Version: 1.3.2
  *
  */
-(function($) {
-
-    jQuery.fn.extend({
-        slimScroll: function(options) {
+    jQuery.fn.slimScroll = function(options) {
 
             var defaults = {
 
@@ -488,11 +485,5 @@
 
             // maintain chainability
             return this;
-        }
-    });
-
-    jQuery.fn.extend({
-        slimscroll: jQuery.fn.slimScroll
-    });
-
-})(jQuery);
+        };
+   
