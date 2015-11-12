@@ -1,0 +1,16 @@
+.profile-content
+  .row
+    .col-md-12
+      .portlet.light
+        .portlet-title.tabbable-line
+          .caption.caption-md
+            .icon-globe.theme-font.hide 
+            .caption-subject.font-blue-madison.bold.uppercase New User
+        .portlet-body
+          = bootstrap_form_for(@user) do |f|
+            = f.text_field :name, class: 'form-control', placeholder: "Name"
+            = f.text_field :email, class: 'form-control', placeholder: "employee@ezeratech.com"
+            = f.password_field :password, class: 'form-control', placeholder: "New Password"
+            = f.password_field :password_confirmation, class: 'form-control', placeholder: "Re-type New Password"
+            = f.submit 'Create User', class: 'btn green'
+            = submit_button(@user)

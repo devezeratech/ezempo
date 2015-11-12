@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, except: :index
+  before_action :set_user, except: [:index, :new, :create]
 
   def index
     @users = User.all
@@ -8,6 +8,21 @@ class UsersController < ApplicationController
 
   def show
     authorize @user
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to edit_user_path(@user), notice: 'User was successfully created.'}
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   def edit
@@ -33,7 +48,7 @@ class UsersController < ApplicationController
 
   def user_params
     # used for update create, not for show
-    params.require(:user).permit(:email, :password, :contact_number, :date_of_birth, :about, :interests, :position, :avatar, :remove_avatar, :name )
+    params.require(:user).permit(:email, :password, :contact_number, :date_of_birth, :about, :interests, :position, :avatar, :remove_avatar, :name, :admin)
   end
 
 end
