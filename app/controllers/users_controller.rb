@@ -33,10 +33,19 @@ class UsersController < ApplicationController
     respond_to do |format|
       authorize @user
       if @user.update(user_params)
-        format.html { redirect_to edit_user_path(@user), notice: 'User updated successfully.'}
+        format.html { redirect_to edit_user_path(@user), notice: 'User was updated successfully.'}
       else
         format.html { render :edit }
       end
+    end
+  end
+
+  def destroy
+    @user.destroy
+    confirm_password(params[:password], params[:password_confirmation])
+    respond_to do |format|
+      format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 

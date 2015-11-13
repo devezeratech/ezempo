@@ -1,3 +1,3 @@
-= bootstrap_form_for(@user) do |f|
-  = f.check_box :admin, label: "Admin"
+= form_for(@user) do |f|
+  = f.check_box :admin, hide_label: true, class: 'make-switch', data: { "on-text": "Admin", "off-text": "User", "on-color": 'success'}
   = f.submit class: 'btn green'

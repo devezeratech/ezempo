@@ -8,9 +8,8 @@
             .caption-subject.font-blue-madison.bold.uppercase New User
         .portlet-body
           = bootstrap_form_for(@user) do |f|
-            = f.text_field :name, class: 'form-control', placeholder: "Name"
-            = f.text_field :email, class: 'form-control', placeholder: "employee@ezeratech.com"
-            = f.password_field :password, class: 'form-control', placeholder: "New Password"
-            = f.password_field :password_confirmation, class: 'form-control', placeholder: "Re-type New Password"
+            = f.email_field :email, required: 'true', class: 'form-control', placeholder: "employee@ezeratech.com"
+            = f.password_field :password, required: 'true', class: 'form-control', placeholder: "New Password"
+            = f.password_field :password_confirmation, required: 'true', class: 'form-control', placeholder: "Re-type New Password"
             = f.submit 'Create User', class: 'btn green'
             = submit_button(@user)
