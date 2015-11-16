@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'users/edit'
-
+  get '/chat' => 'chat#chat'
   # get 'dashboard/show'
 
   devise_for :users

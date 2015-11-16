@@ -1,0 +1,11 @@
+<li class=<%=current_user == user && 'out' || 'in' %>>
+    <%= link_to user_path(user), title: "View #{user.name}'s' profile" do %>
+      <% image_tag user.avatar.url, class: 'avatar', alt: '' %>
+    <% end -%>
+    <div class="message">
+        <span class="arrow"> </span>
+        <a href="javascript:;" class="name"> <%= user.name %> </a>
+        <span class="datetime"> at <%= Time.parse(time).strftime('%H:%M') %> </span>
+        <span class="body"> <%= message %> </span>
+    </div>
+</li>

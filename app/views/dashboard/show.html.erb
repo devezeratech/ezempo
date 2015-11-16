@@ -1432,104 +1432,25 @@
                             <input type="text" class="form-control input-circle" placeholder="search..."> </div>
                     </div>
                 </div>
-            </div>
-            <div class="portlet-body" id="chats">
-                <div class="scroller" style="height: 525px;" data-always-visible="1" data-rail-visible1="1">
-                    <ul class="chats">
-                        <li class="out">
-                            <%= image_tag public_static_path('metronic/layouts/layout/img/avatar2.jpg'), class: 'avatar', alt: '' %>
-                            <div class="message">
-                                <span class="arrow"> </span>
-                                <a href="javascript:;" class="name"> Lisa Wong </a>
-                                <span class="datetime"> at 20:11 </span>
-                                <span class="body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                            </div>
-                        </li>
-                        <li class="out">
-                            <%= image_tag public_static_path('metronic/layouts/layout/img/avatar2.jpg'), class: 'avatar', alt: '' %>
-                            <div class="message">
-                                <span class="arrow"> </span>
-                                <a href="javascript:;" class="name"> Lisa Wong </a>
-                                <span class="datetime"> at 20:11 </span>
-                                <span class="body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                            </div>
-                        </li>
-                        <li class="in">
-                            <%= image_tag public_static_path('metronic/layouts/layout/img/avatar1.jpg'), class: 'avatar', alt: '' %>
-                            <div class="message">
-                                <span class="arrow"> </span>
-                                <a href="javascript:;" class="name"> Bob Nilson </a>
-                                <span class="datetime"> at 20:30 </span>
-                                <span class="body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                            </div>
-                        </li>
-                        <li class="in">
-                            <%= image_tag public_static_path('metronic/layouts/layout/img/avatar1.jpg'), class: 'avatar', alt: '' %>
-                            <div class="message">
-                                <span class="arrow"> </span>
-                                <a href="javascript:;" class="name"> Bob Nilson </a>
-                                <span class="datetime"> at 20:30 </span>
-                                <span class="body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                            </div>
-                        </li>
-                        <li class="out">
-                            <%= image_tag public_static_path('metronic/layouts/layout/img/avatar3.jpg'), class: 'avatar', alt: '' %>
-                            <div class="message">
-                                <span class="arrow"> </span>
-                                <a href="javascript:;" class="name"> Richard Doe </a>
-                                <span class="datetime"> at 20:33 </span>
-                                <span class="body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                            </div>
-                        </li>
-                        <li class="in">
-                        <%= image_tag public_static_path('metronic/layouts/layout/img/avatar3.jpg'), class: 'avatar', alt: '' %>
-                            <div class="message">
-                                <span class="arrow"> </span>
-                                <a href="javascript:;" class="name"> Richard Doe </a>
-                                <span class="datetime"> at 20:35 </span>
-                                <span class="body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                            </div>
-                        </li>
-                        <li class="out">
-                            <%= image_tag public_static_path('metronic/layouts/layout/img/avatar1.jpg'), class: 'avatar', alt: '' %>
-                            <div class="message">
-                                <span class="arrow"> </span>
-                                <a href="javascript:;" class="name"> Bob Nilson </a>
-                                <span class="datetime"> at 20:40 </span>
-                                <span class="body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                            </div>
-                        </li>
-                        <li class="in">
-                            <%= image_tag public_static_path('metronic/layouts/layout/img/avatar3.jpg'), class: 'avatar', alt: '' %>
-                            <div class="message">
-                                <span class="arrow"> </span>
-                                <a href="javascript:;" class="name"> Richard Doe </a>
-                                <span class="datetime"> at 20:40 </span>
-                                <span class="body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                            </div>
-                        </li>
-                        <li class="out">
-                            <%= image_tag public_static_path('metronic/layouts/layout/img/avatar1.jpg'), class: 'avatar', alt: '' %>
-                            <div class="message">
-                                <span class="arrow"> </span>
-                                <a href="javascript:;" class="name"> Bob Nilson </a>
-                                <span class="datetime"> at 20:54 </span>
-                                <span class="body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. sed diam nonummy nibh euismod tincidunt ut laoreet. </span>
-                            </div>
-                        </li>
+            </div>                
+            <div class="portlet-body" >
+                <div class="scroller" id='scroller' style="height: 525px;" data-always-visible="1" data-rail-visible1="1">
+                    <ul class="chats" id="output">
                     </ul>
                 </div>
-                <div class="chat-form">
-                    <div class="input-cont">
-                        <input class="form-control" type="text" placeholder="Type a message here..." /> </div>
-                    <div class="btn-cont">
-                        <span class="arrow"> </span>
-                        <a href="" class="btn blue icn-only">
-                            <i class="fa fa-check icon-white"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
+                <form class="chat">
+                    <div class="chat-form">
+                        <div class="input-cont">
+                            <input class="form-control" type="text" placeholder="Type a message here..." autofocus/> </div>
+                        <div class="btn-cont">
+                            <span class="arrow"> </span>
+                            <%= link_to 'javascript:void(0);', id: 'send-chat', class: "btn blue icn-only" do %>
+                                <i class="fa fa-check icon-white"></i>
+                            <% end -%>
+                        </div>
+                    </div>
+                </form>
         </div>
         <!-- END PORTLET-->
     </div>

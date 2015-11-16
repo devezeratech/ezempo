@@ -21,6 +21,10 @@ gem 'haml'
 gem 'devise'
 gem 'carrierwave'
 gem 'pundit'
+gem 'tubesock'
+gem 'puma'
+gem 'redis'
+
 
 gem 'bootstrap_form', '~> 2.3.0'
 gem 'font-awesome-sass'

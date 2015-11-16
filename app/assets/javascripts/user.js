@@ -8,3 +8,4 @@ var checkTabErrors = function(){
   // show the first tab with an error
   $('.nav-tabs li > .errors').first().tab('show');
 };
+
