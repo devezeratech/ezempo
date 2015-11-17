@@ -24,7 +24,7 @@ gem 'pundit'
 gem 'tubesock'
 gem 'puma'
 gem 'redis'
-
+gem 'gemoji'
 
 gem 'bootstrap_form', '~> 2.3.0'
 gem 'font-awesome-sass'

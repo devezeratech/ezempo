@@ -1,5 +1,6 @@
 class ChatController < ApplicationController
   include Tubesock::Hijack
+  include EmojiHelper
 
   def chat
     # hijack do |tubesock|

@@ -6,6 +6,6 @@
         <span class="arrow"> </span>
         <a href="javascript:;" class="name"> <%= user.name %> </a>
         <span class="datetime"> at <%= Time.parse(time).strftime('%H:%M') %> </span>
-        <span class="body"> <%= message %> </span>
+        <span class="body"> <%= emojify(message) %> </span>
     </div>
 </li>

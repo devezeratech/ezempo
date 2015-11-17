@@ -1,0 +1,49 @@
+var checkTabErrors = function(){
+  var tabIds = $('.tab-pane .has-error').map(function(){
+    // find the parent tab id
+    var tabId = $(this).parents('.tab-pane').attr('id');
+    var tabNav = $("[data-toggle='tab'][href='#" + tabId + "']").addClass('errors');
+  });
+
+  // show the first tab with an error
+  $('.nav-tabs li > .errors').first().tab('show');
+};
+
+$('#chat_input').textcomplete([
+    { // emoji strategy
+        match: /\B:([\-+\w]*)$/,
+        search: function (term, callback) {
+            callback($.map(emojies, function (emoji) {
+                return emoji[0].indexOf(term) === 0 ? emoji[0] : null;
+            }));
+        },
+        template: function (value) {
+            // if (!value.substring(value.length ,value.length -4) == ".png") {
+                return '<img width="30px" height="30px" src="/images/emoji/' + emojie_images[value] + '"></img>' + value;
+            // }
+        },
+        replace: function (value) {
+            return ':' + value + ': ';
+        },
+        index: 1
+    },
+    { // tech companies
+        words: ['apple', 'google', 'facebook', 'github'],
+        match: /\b(\w{2,})$/,
+        search: function (term, callback) {
+            callback($.map(this.words, function (word) {
+                return word.indexOf(term) === 0 ? word : null;
+            }));
+        },
+        index: 1,
+        replace: function (word) {
+            return word + ' ';
+        }
+    }
+], {
+    onKeydown: function (e, commands) {
+        if (e.ctrlKey && e.keyCode === 74) { // CTRL-J
+            return commands.KEY_ENTER;
+        }
+    }
+});

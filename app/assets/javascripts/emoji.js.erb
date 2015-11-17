@@ -1,0 +1,3 @@
+// Generated from Emoji Gem
+var emojies = <%= Emoji.all.collect {|emo| [emo.name,emo.image_filename]} %>;
+var emojie_images = <%= Emoji.all.inject({}) {|hash, emo| hash[emo.name] = emo.image_filename; hash }.to_json %>;

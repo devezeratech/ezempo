@@ -16,7 +16,9 @@ chatReady = ->
       jsonData = JSON.parse(event.data)
       $("#output").append "#{jsonData.content}"
       console.debug("received chat")
+      # $( "#output li" ).last().hide().delay(800).fadeIn(800).delay(4000).fadeOut(800)
       $("#scroller").animate({"scrollTop": $('#scroller')[0].scrollHeight}, "slow")
+      debugger
       if jsonData.enable_notification
         $('#chatAudio')[0].play()
 
