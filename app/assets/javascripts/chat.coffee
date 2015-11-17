@@ -19,7 +19,7 @@ chatReady = ->
       $("#output").append "#{jsonData.content}"
       console.debug("received chat")
       $("#scroller").animate({"scrollTop": $('#scroller')[0].scrollHeight}, "slow")
-
+      $("#chat_input").focus()
       if jsonData.enable_notification
         $('#chatAudio')[0].play()
         $("#output li").last().effect("shake", "slow")
