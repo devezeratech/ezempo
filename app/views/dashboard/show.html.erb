@@ -1436,6 +1436,9 @@
             <div class="portlet-body" >
                 <div class="scroller" id='scroller' style="height: 525px;" data-always-visible="1" data-rail-visible1="1">
                     <ul class="chats" id="output">
+                        <%- @chats.each do |chat| %>
+                            <%= render partial: 'chat/chat_message', locals: { chat: chat }%>
+                        <% end -%>
                     </ul>
                 </div>
             </div>

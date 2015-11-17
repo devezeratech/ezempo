@@ -2,6 +2,8 @@ class ChatController < ApplicationController
   include Tubesock::Hijack
   include EmojiHelper
 
+
+
   def chat
     # hijack do |tubesock|
     #   tubesock.onopen do
@@ -19,10 +21,10 @@ class ChatController < ApplicationController
         # and sub at the same time
         Redis.new.subscribe "chat" do |on|
           on.message do |channel, message|
-            json_data = JSON.parse(message)
-            user = User.find(json_data['user_id'])
-            to_send = { enable_notification: (user != current_user), 
-                        content: render_to_string(partial: 'chat_message', locals: { user: user, message: json_data['message'], time: json_data['time'] })
+            chat = Chat.find(message)
+
+            to_send = { enable_notification: (chat.user != current_user), 
+                        content: render_to_string(partial: 'chat_message', locals: { chat: chat })
                       }.to_json
             tubesock.send_data(to_send)
           end
@@ -32,7 +34,9 @@ class ChatController < ApplicationController
       tubesock.onmessage do |m|
         # pub the message when we get one
         # note: this echoes through the sub above
-        Redis.new.publish "chat", { user_id: current_user.id, message: m, time: DateTime.now }.to_json if m.present?
+        # create chat eg. Chat.create!(user:current_user, message:m)
+        chat = Chat.create!(user: current_user, message: m)
+        Redis.new.publish "chat", chat.id if m.present?
       end
       
       tubesock.onclose do
@@ -41,4 +45,6 @@ class ChatController < ApplicationController
       end
     end
   end
+
+  
 end

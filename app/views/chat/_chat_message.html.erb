@@ -1,11 +1,11 @@
-<li class=<%=current_user == user && 'out' || 'in' %>>
-    <%= link_to user_path(user), title: "View #{user.name}'s' profile" do %>
-      <% image_tag user.avatar.url, class: 'avatar', alt: '' %>
+<li class=<%=current_user == chat.user && 'out' || 'in' %>>
+    <%= link_to user_path(chat.user), title: "View #{chat.user.name}'s' profile" do %>
+      <% image_tag chat.user.avatar.url, class: 'avatar', alt: '' %>
     <% end -%>
     <div class="message">
         <span class="arrow"> </span>
-        <a href="javascript:;" class="name"> <%= user.name %> </a>
-        <span class="datetime"> at <%= Time.parse(time).strftime('%H:%M') %> </span>
-        <span class="body"> <%= emojify(message) %> </span>
+        <%= link_to chat.user.name, user_path(chat.user), title: "View #{chat.user.name}'s profile" %>
+        <span class="datetime"> <%= chat.created_at.localtime.strftime("%d %b %y at %I:%M %p") %> </span>
+        <span class="body"> <%= emojify(chat.message) %> </span>
     </div>
 </li>

@@ -7,9 +7,13 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
   before_action :authenticate_user!
-  
+  before_action :load_recent_chat
 
   private
+
+  def load_recent_chat
+    @chats = Chat.last(10)
+  end
 
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
