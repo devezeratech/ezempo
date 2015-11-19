@@ -35,8 +35,11 @@ class ChatController < ApplicationController
         # pub the message when we get one
         # note: this echoes through the sub above
         # create chat eg. Chat.create!(user:current_user, message:m)
-        chat = Chat.create!(user: current_user, message: m)
-        Redis.new.publish "chat", chat.id if m.present?
+        # binding.pry
+        if m.present? 
+          chat = Chat.create!(user: current_user, message: m)
+          Redis.new.publish "chat", chat.id 
+        end
       end
       
       tubesock.onclose do

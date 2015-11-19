@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   private
 
   def load_recent_chat
-    @chats = Chat.last(10)
+    @chats = Chat.last(20)
   end
 
   def user_not_authorized
