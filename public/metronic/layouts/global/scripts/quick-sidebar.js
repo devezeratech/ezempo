@@ -7,7 +7,9 @@ var QuickSidebar = function () {
     var handleQuickSidebarToggler = function () {
         // quick sidebar toggler
         $('.dropdown-quick-sidebar-toggler a, .page-quick-sidebar-toggler, .quick-sidebar-toggler').click(function (e) {
-            $('body').toggleClass('page-quick-sidebar-open'); 
+            $('body').toggleClass('page-quick-sidebar-open');
+            $("#chat_input").focus();
+
         });
     };
 
@@ -62,7 +64,6 @@ var QuickSidebar = function () {
             var preparePost = function(dir, time, name, avatar, message) {
                 var tpl = '';
                 tpl += '<div class="post '+ dir +'">';
-                tpl += '<img class="avatar" alt="" src="' + Layout.getLayoutImgPath() + avatar +'.jpg"/>';
                 tpl += '<div class="message">';
                 tpl += '<span class="arrow"></span>';
                 tpl += '<a href="#" class="name">Bob Nilson</a>&nbsp;';
@@ -80,25 +81,25 @@ var QuickSidebar = function () {
             var time = new Date();
             var message = preparePost('out', (time.getHours() + ':' + time.getMinutes()), "Bob Nilson", 'avatar3', text);
             message = $(message);
-            chatContainer.append(message);
+            // chatContainer.append(message);
 
             chatContainer.slimScroll({
                 scrollTo: '1000000px'
             });
 
-            input.val("");
+            // input.val("");
 
             // simulate reply
-            setTimeout(function(){
-                var time = new Date();
-                var message = preparePost('in', (time.getHours() + ':' + time.getMinutes()), "Ella Wong", 'avatar2', 'Lorem ipsum doloriam nibh...');
-                message = $(message);
-                chatContainer.append(message);
+            // setTimeout(function(){
+            //     var time = new Date();
+            //     var message = preparePost('in', (time.getHours() + ':' + time.getMinutes()), "Ella Wong", 'avatar2', 'Lorem ipsum doloriam nibh...');
+            //     message = $(message);
+            //     chatContainer.append(message);
 
-                chatContainer.slimScroll({
-                    scrollTo: '1000000px'
-                });
-            }, 3000);
+            //     chatContainer.slimScroll({
+            //         scrollTo: '1000000px'
+            //     });
+            // }, 3000);
         };
 
         wrapperChat.find('.page-quick-sidebar-chat-user-form .btn').click(handleChatMessagePost);

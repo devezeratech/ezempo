@@ -9,6 +9,9 @@ var checkTabErrors = function(){
   $('.nav-tabs li > .errors').first().tab('show');
 };
 
+var wrapper = $('.page-quick-sidebar-wrapper');
+var wrapperChat = wrapper.find('.page-quick-sidebar-chat');
+var input = wrapperChat.find('.page-quick-sidebar-chat-user-form #chat_input');
 $('#chat_input').textcomplete([
     { // emoji strategy
         match: /\B:([\-+\w]*)$/,
@@ -20,7 +23,7 @@ $('#chat_input').textcomplete([
         template: function (value) {
             // if (!value.substring(value.length ,value.length -4) == ".png") {
                 return '<img width="30px" height="30px" src="/images/emoji/' + emojie_images[value] + '"></img>' + value;
-            // }
+            // }z
         },
         replace: function (value) {
             return ':' + value + ': ';

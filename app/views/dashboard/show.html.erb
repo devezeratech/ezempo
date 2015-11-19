@@ -1,5 +1,4 @@
 <h3 class="page-title"> Dashboard
-    <small>dashboard & statistics</small>
 </h3>
 <div class="page-bar">
     <ul class="page-breadcrumb">
@@ -13,30 +12,7 @@
         </li>
     </ul>
     <div class="page-toolbar">
-        <div class="btn-group pull-right">
-            <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Actions
-                <i class="fa fa-angle-down"></i>
-            </button>
-            <ul class="dropdown-menu pull-right" role="menu">
-                <li>
-                    <a href="#">
-                        <i class="icon-bell"></i> Action</a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-shield"></i> Another action</a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-user"></i> Something else here</a>
-                </li>
-                <li class="divider"> </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-bag"></i> Separated link</a>
-                </li>
-            </ul>
-        </div>
+        
     </div>
 </div>
 <!-- END PAGE HEADER-->
@@ -1418,43 +1394,5 @@
         <!-- END PORTLET-->
     </div>
     <div class="col-md-6 col-sm-6">
-        <!-- BEGIN PORTLET-->
-        <div class="portlet light ">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="icon-bubble font-red-sunglo"></i>
-                    <span class="caption-subject font-red-sunglo bold uppercase">Chats</span>
-                </div>
-                <div class="actions">
-                    <div class="portlet-input input-inline">
-                        <div class="input-icon right">
-                            <i class="icon-magnifier"></i>
-                            <input type="text" class="form-control input-circle" placeholder="search..."> </div>
-                    </div>
-                </div>
-            </div>                
-            <div class="portlet-body" >
-                <div class="scroller" id='scroller' style="height: 525px;" data-always-visible="1" data-rail-visible1="1">
-                    <ul class="chats" id="output">
-                        <%- @chats.each do |chat| %>
-                            <%= render partial: 'chat/chat_message', locals: { chat: chat }%>
-                        <% end -%>
-                    </ul>
-                </div>
-            </div>
-                <form class="chat">
-                    <div class="chat-form">
-                        <div class="input-cont">
-                            <input id="chat_input" class="form-control" type="text" placeholder="Type a message here..." autofocus/> </div>
-                        <div class="btn-cont">
-                            <span class="arrow"> </span>
-                            <%= link_to 'javascript:void(0);', id: 'send-chat', class: "btn blue icn-only" do %>
-                                <i class="fa fa-check icon-white"></i>
-                            <% end -%>
-                        </div>
-                    </div>
-                </form>
-        </div>
-        <!-- END PORTLET-->
     </div>
 </div>
