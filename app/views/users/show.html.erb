@@ -19,33 +19,10 @@
               </div>
               <!-- END SIDEBAR USER TITLE -->
               <!-- SIDEBAR BUTTONS -->
-              <div class="profile-userbuttons">
-                  <button type="button" class="btn btn-circle green btn-sm">Follow</button>
-                  <button type="button" class="btn btn-circle red btn-sm">Message</button>
-              </div>
+              <div class="row list-separated profile-stat">
+                <%= render partial: 'status/create_status' %>
               <!-- END SIDEBAR BUTTONS -->
-              <!-- SIDEBAR MENU -->
-              <div class="profile-usermenu">
-                  <ul class="nav">
-                      <li class="active">
-                          <a href="page_user_profile_1.html">
-                              <i class="icon-home"></i> Overview </a>
-                      </li>
-                      <%if policy(@user).edit? %>
-                        <li>
-                            <%= link_to edit_user_path(@user.to_param) do %>
-                                <i class="icon-settings"></i>Account Setting
-                            <% end -%>
-                        </li>
-                      <% end -%>
-                      <li>
-                          <a href="page_user_profile_1_help.html">
-                              <i class="icon-info"></i> Help </a>
-                      </li>
-                  </ul>
               </div>
-              <!-- END MENU -->
-          </div>
           <!-- END PORTLET MAIN -->
           <!-- PORTLET MAIN -->
           <div class="portlet light ">

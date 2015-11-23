@@ -25,6 +25,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def create_status
+    @status = User.new(user_params)
+    respond_to do |format|
+      if @status.save
+        format.html { redirect_to root_path(@status), notice: 'Status was successfully updated.'}
+      else
+        format.html { render :new }
+      end
+    end
+  end 
+
   def edit
     authorize @user
   end
