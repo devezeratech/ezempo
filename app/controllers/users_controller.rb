@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, except: [:index, :new, :create]
+  before_action :authorize_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -7,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    authorize @user
+    @statuses = @user.statuses.order(created_at: :desc).limit(5)
   end
 
   def new
@@ -25,24 +26,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def create_status
-    @status = User.new(user_params)
-    respond_to do |format|
-      if @status.save
-        format.html { redirect_to root_path(@status), notice: 'Status was successfully updated.'}
-      else
-        format.html { render :new }
-      end
-    end
-  end 
-
   def edit
-    authorize @user
   end
 
   def update
     respond_to do |format|
-      authorize @user
       if @user.update(user_params)
         format.html { redirect_to edit_user_path(@user), notice: 'User was updated successfully.'}
       else
@@ -69,6 +57,10 @@ class UsersController < ApplicationController
   def user_params
     # used for update create, not for show
     params.require(:user).permit(:email, :password, :contact_number, :date_of_birth, :about, :interests, :position, :avatar, :remove_avatar, :name, :admin)
+  end
+
+  def authorize_user
+    authorize @user
   end
 
 end
