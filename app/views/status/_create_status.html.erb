@@ -1,0 +1,20 @@
+<div class="col-md-12 post">
+  <%= form_for Status.new(user: current_user) do |f| %>
+    <div class="col-md-12">
+      <%= f.text_field :text_status, class: "form-control input-circle autosizeme",  placeholder: "What's on your mind?"%>
+      <%= f.hidden_field :user_id %>
+    </div>
+    <div class="col-md-12 text-center margin-top-10">
+      <%= f.submit "UPDATE STATUS", class: "btn btn-circle green btn-sm"%>
+    </div>
+  <% end -%>
+</div>
+<div class="col-md-12">
+  <div class="row"> 
+    <%- @user.statuses.each do |status| %>
+      <div class="col-md-12">
+        <%= status.text_status %>
+      </div>
+      <% end -%>
+  </div>
+</div>
