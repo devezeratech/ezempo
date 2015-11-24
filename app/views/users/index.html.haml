@@ -11,6 +11,6 @@
           - if user.admin?
             %i.fa.fa-check
         %td{ class: "#{current_user == user && 'pointer'}"}
-          = link_to 'Delete', user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger #{ current_user == user && 'disabled'}" 
+          = link_to 'Delete', user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger #{ current_user == user && 'disabled' || ""}" 
 
 = link_to "Create User", new_user_path, class: 'btn green', data: { "no-turbolink": true }

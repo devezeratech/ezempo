@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :status do
-    text ""
-user nil
+    text_status "My Ganas Status"
+    user {FactoryGirl.build(:user, id: 9999)}
   end
 
 end

@@ -35,5 +35,5 @@ var AppTimeline = function () {
 }();
 
 jQuery(document).ready(function() {
-    AppTimeline.init();
+    // AppTimeline.init();
 });

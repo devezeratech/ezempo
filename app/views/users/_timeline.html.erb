@@ -1,64 +1,18 @@
-<div class="portlet light portlet-fit ">
+<div class="portlet light portlet-fit", id="timeline-container">
     <div class="portlet-title">
         <div class="caption">
             <i class="fa fa-commenting-o font-green"></i>
             <span class="caption-subject bold font-green uppercase"> Garis Masa</span>
-            <!-- <span class="caption-helper">user timeline</span> -->
-        </div>
-        <div class="actions">
-            <div class="btn-group btn-group-devided" data-toggle="buttons">
-                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
-                    <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
-                    <input type="radio" name="options" class="toggle" id="option2">Settings</label>
-            </div>
         </div>
     </div>
     <div class="portlet-body">
         <div class="timeline">
+          <div class="scroller" style="height: 600px;" data-always-visible="1" data-rail-visible="0">
             <!-- TIMELINE ITEM -->
               <%- @statuses.each do |status| %>           
-              <div class="timeline-item">
-                  <div class="timeline-badge">
-                      <img class="timeline-badge-userpic" src="<%= image_path status.user.avatar_url %>"> </div>
-                  <div class="timeline-body">
-                      <div class="timeline-body-arrow"> </div>
-                      <div class="timeline-body-head">
-                          <div class="timeline-body-head-caption">
-                            <%= link_to status.user.name, user_path(status.user), title: "View #{status.user.name}'s profile", class: 'timeline-body-title font-blue-madison' %>
-                              
-                              <span class="timeline-body-time font-grey-cascade"><%= status.created_at.localtime.strftime("%d %b %y at %I:%M %p") %></span>
-                          </div>
-                          <div class="timeline-body-head-actions">
-                              <div class="btn-group">
-                                  <button class="btn btn-circle green btn-outline btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
-                                      <i class="fa fa-angle-down"></i>
-                                  </button>
-                                  <ul class="dropdown-menu pull-right" role="menu">
-                                      <li>
-                                          <a href="javascript:;">Action </a>
-                                      </li>
-                                      <li>
-                                          <a href="javascript:;">Another action </a>
-                                      </li>
-                                      <li>
-                                          <a href="javascript:;">Something else here </a>
-                                      </li>
-                                      <li class="divider"> </li>
-                                      <li>
-                                          <a href="javascript:;">Separated link </a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="timeline-body-content">
-                          <span class="font-grey-cascade"><%= status.text_status %></span>
-                      </div>
-                  </div>
-              </div>
-            <!-- END TIMELINE ITEM --> 
-            <% end -%>
+               <%= render partial: 'statuses/timeline_template', locals: { status: status }%>
+              <% end -%>
+          </div>
         </div>
     </div>
 </div>

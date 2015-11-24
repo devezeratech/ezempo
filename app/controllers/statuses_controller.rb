@@ -1,6 +1,12 @@
 class StatusesController < ApplicationController
-  before_action :set_status, only: [ :update, :destroy ]
+  before_action :set_status, only: [ :update, :destroy, :edit,  ]
+  before_action :authorize_status, only: [:edit, :update, :destroy]
 
+  def edit
+  end
+
+  def new
+  end
 
   def create
     @status = Status.new(status_params)
@@ -15,10 +21,17 @@ class StatusesController < ApplicationController
   def update
     respond_to do |format|
       if @status.update(status_params)
-        format.html { redirect_to edit_status_path(@status), notice: 'Status was successfully updated.' }
+        format.html { redirect_to request.referer + "#status-container-#{@status.id}", notice: 'Status was successfully updated.' }
       else
         format.html { render :edit }
       end
+    end
+  end
+
+  def destroy
+    @status.destroy
+    respond_to do |format|
+      format.html { redirect_to request.referer + "#timeline-container", notice: 'Status was successfully removed.' }
     end
   end
 
@@ -32,6 +45,8 @@ class StatusesController < ApplicationController
     params.require(:status).permit(:text_status, :user_id)
   end
 
-
+  def authorize_status
+    authorize @status
+  end
 
 end
