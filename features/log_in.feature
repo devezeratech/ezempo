@@ -5,9 +5,9 @@ Feature:
 
   Scenario: Employee logs into the portal
     Given there is no user logged in
-    And there is a user account with email "someone@ezeratech.com" and password "heyitsme123"
+    And there is an user account with email "someone@ezeratech.com", password "heyitsme123" and name "Someone"
     When I go to the sign in page
     And I fill in "someone@ezeratech.com" for the Email in the new_user section
     And I fill in "heyitsme123" for the Password in the new_user section
-    And I click the 'Log in' button
-    Then I should be signed in as "someone@ezeratech.com"
+    And I click the 'Login' button
+    Then I should be signed in as "Developer" with "someone@ezeratech.com"

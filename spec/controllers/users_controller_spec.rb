@@ -1,6 +1,7 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.describe UsersController, type: :controller do
+RSpec.describe UsersController, type: :controller do
+  include Devise::TestHelpers
 
 #   describe "GET #edit" do
 #     it "returns http success" do
@@ -9,4 +10,4 @@
 #     end
 #   end
 
-# end
+end
