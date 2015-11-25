@@ -1,0 +1,5 @@
+<div class="col-md-12 post">
+  <%= form_for Status.new(user: current_user) do |f| %>
+   <%= render partial: 'statuses/form', locals: { f: f }%>
+  <% end -%>
+</div>

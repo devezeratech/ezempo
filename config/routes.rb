@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'users/edit'
   get '/chat' => 'chat#chat'
+
+
   # get 'dashboard/show'
 
   devise_for :users
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'dashboard#show'
   resources :users
+  resources :statuses, only: [:create, :edit, :update, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

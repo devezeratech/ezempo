@@ -9,6 +9,9 @@ var checkTabErrors = function(){
   $('.nav-tabs li > .errors').first().tab('show');
 };
 
+var wrapper = $('.page-quick-sidebar-wrapper');
+var wrapperChat = wrapper.find('.page-quick-sidebar-chat');
+var input = wrapperChat.find('.page-quick-sidebar-chat-user-form #chat_input');
 $('#chat_input').textcomplete([
     { // emoji strategy
         match: /\B:([\-+\w]*)$/,
@@ -20,7 +23,46 @@ $('#chat_input').textcomplete([
         template: function (value) {
             // if (!value.substring(value.length ,value.length -4) == ".png") {
                 return '<img width="30px" height="30px" src="/images/emoji/' + emojie_images[value] + '"></img>' + value;
-            // }
+            // }z
+        },
+        replace: function (value) {
+            return ':' + value + ': ';
+        },
+        index: 1
+    },
+    { // tech companies
+        words: ['apple', 'google', 'facebook', 'github'],
+        match: /\b(\w{2,})$/,
+        search: function (term, callback) {
+            callback($.map(this.words, function (word) {
+                return word.indexOf(term) === 0 ? word : null;
+            }));
+        },
+        index: 1,
+        replace: function (word) {
+            return word + ' ';
+        }
+    }
+], {
+    onKeydown: function (e, commands) {
+        if (e.ctrlKey && e.keyCode === 74) { // CTRL-J
+            return commands.KEY_ENTER;
+        }
+    }
+});
+
+$('#text-status').textcomplete([
+    { // emoji strategy
+        match: /\B:([\-+\w]*)$/,
+        search: function (term, callback) {
+            callback($.map(emojies, function (emoji) {
+                return emoji[0].indexOf(term) === 0 ? emoji[0] : null;
+            }));
+        },
+        template: function (value) {
+            // if (!value.substring(value.length ,value.length -4) == ".png") {
+                return '<img width="30px" height="30px" src="/images/emoji/' + emojie_images[value] + '"></img>' + value;
+            // }z
         },
         replace: function (value) {
             return ':' + value + ': ';

@@ -1,0 +1,55 @@
+<div class="modal fade" id='status-<%= status.id%>' tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <%= form_for status do |f| %>
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Edit Here!!!</h4>
+            </div>
+            <div class="modal-body">   <%= f.text_field :text_status, id: 'text-status', class: "form-control input-circle autosizeme",  placeholder: "What's on your mind?"%> </div>
+            <div class="modal-footer">
+                <button type="button" class="btn  dark btn-circle btn-outline" data-dismiss="modal">Close</button>
+              <%= f.submit "Update Status", class: "btn btn-circle green "%>
+                <!-- <button type="button" class="btn green">Save changes</button> -->
+            </div>
+         <% end -%>  
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="timeline-item", id="status-container-<%=status.id%>">
+        <div class="timeline-badge">
+            <%= link_to user_path(status.user), title: "View #{status.user.name}'s' profile" do %>
+              <%= image_tag status.user.avatar.url, class: 'timeline-badge-userpic', alt: '' %>
+            <% end -%>
+            </div>
+        <div class="timeline-body">
+            <div class="timeline-body-arrow"> </div>
+            <div class="timeline-body-head">
+                <div class="timeline-body-head-caption">
+                  <%= link_to status.user.name, user_path(status.user), title: "View #{status.user.name}'s profile", class: 'timeline-body-title font-blue-madison' %>
+                    
+                    <span class="timeline-body-time font-grey-cascade"><%= status.created_at.localtime.strftime("%d %b %y at %I:%M %p") %></span>
+                </div>
+                <%- if policy(status).update? %>
+                    <div class="timeline-body-head-actions">
+                        <div class="actions">
+                            <%= link_to "#status-#{status.id}", class: "btn btn-circle btn-icon-only btn-default", data: { toggle: 'modal' } do %>
+                                <i class="fa fa-edit"></i>
+                            <% end -%>    
+                            <%= link_to status, :method => :delete, class: "btn btn-circle btn-icon-only btn-danger", :data => { :confirm => 'Are you sure?' } do %>
+                                <i class="icon-trash"></i>
+                            <% end -%>    
+                        </div>
+                    </div>
+                <% end -%>
+            </div>
+            <div class="timeline-body-content">
+                <span class="font-grey-cascade"><%= emojify(status.text_status) %></span>
+            </div>
+        </div>
+    </div>
+  <!-- END TIMELINE ITEM --> 
