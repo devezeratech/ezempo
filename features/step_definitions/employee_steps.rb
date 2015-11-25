@@ -1,5 +1,5 @@
-Given(/^a user exists with email "(.*?)" and password "(.*?)"$/) do |email, password|
-  User.create( email: email, password: password)
+Given(/^a user exists with email "(.*?)", password "(.*?)" and name "(.*?)"$/) do |email, password, name|
+  User.create( email: email, password: password, name: name)
 end
 
 Given(/^I signed in as "(.*?)" and password "(.*?)"$/) do |email, password|
@@ -7,7 +7,7 @@ Given(/^I signed in as "(.*?)" and password "(.*?)"$/) do |email, password|
   within("#new_user") do
     fill_in 'Email', with: email
     fill_in 'Password', with: password
-    click_button 'Log in'
+    click_button 'Login'
   end
 end
 
@@ -30,8 +30,8 @@ Given(/^there is no user logged in$/) do
   delete destroy_user_session_path
 end
 
-Given(/^there is a user account with email "(.*?)" and password "(.*?)"$/) do |email, password|
-  User.create( email: email, password: password)
+Given(/^there is a user account with email "(.*?)", password "(.*?)" and name "(.*?)"$/) do |email, password, name|
+  User.create( email: email, password: password, name: name)
 end
 
 When(/^I go to the sign in page$/) do
@@ -54,8 +54,11 @@ end
 
 When(/^I click the '(.*)' button$/) do |button|
   click_button button
+
 end
 
-Then(/^I should be signed in as "(.*?)"$/) do |email|
-  expect(page).to have_css('.username', text: email)
+Then(/^I should be signed in as "(.*?)" with "(.*?)"$/) do |name, email|
+  user = User.find_by_email(email)
+  visit user_path(user)
+  expect(page).to have_css('.name', text: user.name)
 end
