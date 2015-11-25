@@ -1,6 +1,6 @@
 Feature: Ability of employee
   Background: 
-    Given a user exists with email "employee@ezeratech.com" and password "asdasd123"
+    Given a user exists with email "employee@ezeratech.com", password "asdasd123" and name "Developer"
 
   Scenario: View employee profile
     Given I signed in as "employee@ezeratech.com" and password "asdasd123"
