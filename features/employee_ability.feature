@@ -8,3 +8,8 @@ Feature: Ability of employee
     When I click on "My Profile" link with email "employee@ezeratech.com"
     Then I should be able to see my profile with email "employee@ezeratech.com"
 
+   
+
+
+
+

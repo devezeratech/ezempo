@@ -21,7 +21,6 @@ When(/^I click on "(.*?)" link with email "(.*?)"$/) do |link_name, email|
 end
 
 Then(/^I should be able to see my profile with email "(.*?)"$/) do |email|
-  # binding.pry
   user = User.find_by_email(email)
   visit user_path(user.to_param)
 end
