@@ -34,8 +34,6 @@ class ChatController < ApplicationController
       tubesock.onmessage do |m|
         # pub the message when we get one
         # note: this echoes through the sub above
-        # create chat eg. Chat.create!(user:current_user, message:m)
-        # binding.pry
         if m.present? 
           chat = Chat.create!(user: current_user, message: m)
           Redis.new.publish "chat", chat.id 

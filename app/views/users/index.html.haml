@@ -6,10 +6,12 @@
   %tbody
     - @users.each do |user|
       %tr.user{ data: {'item-id' => user.to_param, 'update-url' => user_path(user) , 'object-type' =>  'user' } }
-        %td= link_to "#{ user.name.presence || 'No Name' }", edit_user_path(user), data: { "no-turbolink": true }
+        %td= link_to "#{ user.name.presence || 'No Name' }", user_path(user), data: { "no-turbolink": true }
         %td
           - if user.admin?
             %i.fa.fa-check
+        %td
+          = link_to 'Edit', edit_user_path(user), class: "btn green" 
         %td{ class: "#{current_user == user && 'pointer'}"}
           = link_to 'Delete', user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger #{ current_user == user && 'disabled' || ""}" 
 

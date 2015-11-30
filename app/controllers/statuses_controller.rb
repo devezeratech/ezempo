@@ -12,7 +12,7 @@ class StatusesController < ApplicationController
     @status = Status.new(status_params)
     respond_to do |format|
       if @status.save
-        format.html { redirect_to user_path(@status.user.id), notice: 'Status was successfully updated.'}
+        format.html { redirect_to user_path(@status.user.id) + "#timeline-container", notice: 'Status was successfully updated.'}
       else
         format.html { render :new }
       end

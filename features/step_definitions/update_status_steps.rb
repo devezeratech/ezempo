@@ -1,14 +1,13 @@
 Given(/^I'm on the profile page with email "(.*?)"$/) do |email|
   user = User.find_by_email(email)
   visit user_path(user)
-
 end
 
 Given(/^I should see a status text field$/) do
   expect(page).to have_css(".text_status")
 end
 
-When(/^I fill in "(.*?)"$/) do |status|
+When(/^I fill in "(.*?)" as the status$/) do |status|
   fill_in 'status[text_status]', with: status
 end
 

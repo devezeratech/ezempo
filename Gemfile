@@ -76,6 +76,9 @@ end
 group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'capybara-webkit'
+  gem 'mock_redis'
+  gem 'capybara-puma', '~> 1.0', '>= 1.0.1'
 end
 
 group :production do

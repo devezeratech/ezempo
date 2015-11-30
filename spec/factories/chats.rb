@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :chat do
-    user nil
+    user { FactoryGirl.build(:user)}
 message "MyString"
   end
 

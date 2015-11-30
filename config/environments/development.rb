@@ -11,6 +11,8 @@ Rails.application.configure do
 
   # Letter Opener
   config.action_mailer.delivery_method = :letter_opener
+
+  config.assets.raise_production_errors = true
   
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
